@@ -1,6 +1,8 @@
+# importing the packages needed for ploting the result
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 
+# the matrix that has the values of the three objective functions
 m = [[5.5, 4 ,4.5],
      [ 1 , 8 , 0 ],
      [3.5, 4 ,5.5],
@@ -10,7 +12,10 @@ m = [[5.5, 4 ,4.5],
      [ 4 , 6 ,2.5],
      [ 6 , 0 ,0.5]]
 
+# empty list to put the pareto objective functions that will be used later
 front_de_pareto = []
+
+#
 rang = []
 
 def pareto(m,f1,f2,f3) :
@@ -41,7 +46,7 @@ def pareto(m,f1,f2,f3) :
 	return(front_de_pareto)
 
 
-
+# this function check for the dominance between to rows of the matrix depending on the objective functions passed to it(min or max)
 def dominate(row1,row2,minOrMax1,minOrMax2,minOrMax3) :
 
 	if minOrMax1=='min' and minOrMax2=='min' and minOrMax3=='min' :
@@ -104,6 +109,9 @@ for p in m :
     	ys.append(p[1])
     	zs.append(p[2])
 
+
+
+# ploting the result of the pareto front as a 3D scatterplot
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 
